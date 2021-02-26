@@ -6,11 +6,11 @@ import Footer from '../Footer/Footer';
 const toDoItem = 'Написать новое приложение';
 
 const App = () => (
-<div>
+ <div>
   <h1>Важные дела:</h1>
   <InputItem />
   <ItemList toDoItem={toDoItem} />
   <Footer count={3} />
-</div>);
+ </div>);
 
 export default App;
