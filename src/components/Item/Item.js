@@ -8,7 +8,7 @@ const Item = ({ value, isDone }) => (<span className={
     [styles.done]: isDone
   })
 }>
-  {value}
+{value}
 </span>);
 
 export default Item;

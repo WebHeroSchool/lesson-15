@@ -1,0 +1,15 @@
+.itemList {
+  list-style: none;
+  padding-left: 0px;
+  margin-bottom: 30px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.itemText {
+  margin-right: auto;
+}

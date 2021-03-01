@@ -4,8 +4,6 @@ import ItemList from '../ItemList/ItemList';
 import Footer from '../Footer/Footer';
 import styles from './App.module.css';
 
-const toDoItem = 'Написать новое приложение';
-
 const App = () => {
   const items = [
     {
