@@ -1,11 +1,12 @@
 import React from 'react';
+import styles from './InputItem.module.css';
 import TextField from '@material-ui/core/TextField';
 
 const InputItem = () => (<div>
   <TextField
-    id="standart-dense"
-    label="Добавить задание"
-    margin="dense"
+    id="outlined-basic"
+    label="Добавить новое задание"
+    variant="outlined"
   />
 </div>);
 
