@@ -5,8 +5,9 @@ import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { style } from '@material-ui/system';
 
-const Footer = ({ count }) => (<footer className={styles.wrap}>
-  <div className={styles.leftToDo}>Осталось выполнить дел: {count}</div>
+const Footer = ({ count, onClickFooter }) =>
+  (<footer className={styles.wrap}>
+  <div className={styles.leftToDo} onClick={onClickFooter}>Осталось выполнить дел: {count}</div>
   <div>
     <ButtonGroup variant="text" size="small" aria-label="small contained button group">
       <Button>Все</Button>
