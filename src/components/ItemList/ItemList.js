@@ -5,24 +5,25 @@ import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 
-const ItemList = ({ items }) => (
+const ItemList = ({ items, onClickDone }) => (
   <ul className={styles.itemList}>
   {items.map(item =>
     <li key={item.value} className={styles.item}>
-      <Checkbox
-        defaultChecked
-        color="primary"
-        value="checkedG"
-        inputProps={{
-          'aria-label': 'secondary checkbox',
-        }}
-      />
-      <div className={styles.itemText}><Item value={item.value} isDone={item.isDone} /></div>
-      <div>
-        <IconButton aria-label='delete'>
-          <DeleteIcon fontSize='small' />
-        </IconButton>
-      </div>
+    <Checkbox
+      checked={item.isDone}
+      color="primary"
+      value="checkedG"
+      inputProps={{
+        'aria-label': 'secondary checkbox',
+      }}
+      onClick={() => onClickDone(item.isDone)}
+     />
+     <div className={styles.itemText}><Item value={item.value} isDone={item.isDone} onClickDone={onClickDone} /></div>
+     <div>
+       <IconButton aria-label='delete'>
+         <DeleteIcon fontSize='small' />
+       </IconButton>
+     </div>
     </li>)}
   </ul>
 );
