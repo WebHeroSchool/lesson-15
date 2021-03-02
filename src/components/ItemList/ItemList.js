@@ -16,9 +16,16 @@ const ItemList = ({ items, onClickDone }) => (
       inputProps={{
         'aria-label': 'secondary checkbox',
       }}
-      onClick={() => onClickDone(item.isDone)}
+      onClick={() => onClickDone(item.id)}
      />
-     <div className={styles.itemText}><Item value={item.value} isDone={item.isDone} onClickDone={onClickDone} /></div>
+     <div className={styles.itemText}>
+       <Item
+         value={item.value}
+         isDone={item.isDone}
+         id={items.id}
+         onClickDone={onClickDone}
+        />
+     </div>
      <div>
        <IconButton aria-label='delete'>
          <DeleteIcon fontSize='small' />
