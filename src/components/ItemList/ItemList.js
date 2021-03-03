@@ -8,7 +8,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 const ItemList = ({ items, onClickDone, onClickDelete }) => (
   <ul className={styles.itemList}>
   {items.map(item =>
-    <li key={item.value} className={styles.item}>
+    <li key={item.id} className={styles.item}>
     <Checkbox
       checked={item.isDone}
       color="primary"
