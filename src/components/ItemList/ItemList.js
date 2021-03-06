@@ -38,4 +38,11 @@ const ItemList = ({ items, onClickDone, onClickDelete }) => (
   </ul>
 );
 
+ItemList.defaultProps = {
+  items: [{
+    value: "Не существующая задача",
+    isDone: false,
+  }]
+};
+
 export default ItemList;
