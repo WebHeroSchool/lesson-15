@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './Footer.module.css';
 import ButtonGroup from '@material-ui/core/ButtonGroup';
 import Button from '@material-ui/core/Button';
@@ -27,6 +28,10 @@ const Footer = ({ count, onClickFooter }) =>
 
 Footer.defaultProps = {
   count: 0
+};
+
+Footer.propTypes = {
+  count: PropTypes.number.isRequired
 };
 
 export default Footer;
