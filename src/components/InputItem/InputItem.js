@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './InputItem.module.css';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -38,5 +39,12 @@ class InputItem extends React.Component {
     </div>);
   }
 }
+
+InputItem.propTypes = {
+  value: PropTypes.oneOfType ([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ])
+};
 
 export default InputItem;
