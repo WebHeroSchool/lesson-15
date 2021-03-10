@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
+import Card from '@material-ui/core/Card';
+import MenuItem from '@material-ui/core/MenuItem';
+import MenuList from '@material-ui/core/MenuList';
 import Todo from '../Todo/Todo';
 import About from '../About/About';
 import Contacts from '../Contacts/Contacts';
@@ -10,22 +12,24 @@ import styles from './App.module.css';
 const App = () =>
   (<Router>
     <div ClassName={styles.wrap}>
-      <nav className={styles.menu}>
-        <Link to='/'>
-          <button className={styles.link}>Обо мне</button>
-        </Link>
-        <Link to='/todo'>
-          <button className={styles.link}>Дела</button>
-        </Link>
-        <Link to='/contacts'>
-          <button className={styles.link}>Контакты</button>
-        </Link>
-      </nav>
-      <div className={styles.content}>
+      <Card className={styles.sidebar}>
+        <MenuList>
+          <Link className={styles.link} to='/'>
+            <MenuItem>Обо мне</MenuItem>
+          </Link>
+          <Link className={styles.link} to='/todo'>
+            <MenuItem>Дела</MenuItem>
+          </Link>
+          <Link className={styles.link} to='/contacts'>
+            <MenuItem>Контакты</MenuItem>
+          </Link>
+        </MenuList>
+      </Card>
+      <Card className={styles.content}>
         <Route path='/' exact component={About} />
         <Route path='/todo' component={Todo} />
         <Route path='/contacts' component={Contacts} />
-      </div>
+      </Card>
     </div>
   </Router>);
 
