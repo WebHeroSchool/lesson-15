@@ -1,15 +1,24 @@
-.wrap {
-  margin: auto;
-  width: 400px;
-  padding: 30px 30px 30px 30px;
-  border: 15px solid #e0d8e2;
-  border-radius: 8px;
+body {
+  padding-top: 36px;
+  background: #eee;
+  font-family: Helvetica;
 }
 
-.title{
-  font-family: Helvetica;
-  font-size: 35px;
-  color: #000;
-  margin: 0;
-  margin-bottom: 20px;
+.wrap {
+  display: grid;
+  grid-template-areas: 'sidebar ... content content';
+  margin: auto;
+  width: 500px;
+}
+
+.sidebar {
+  grid-area: sidebar;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.content {
+   grid-area: content;
 }
