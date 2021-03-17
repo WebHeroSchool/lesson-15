@@ -1,7 +1,7 @@
 import React from 'react';
 import CardContent from '@material-ui/core/CardContent';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Octokit from '@octokit/rest';
+import { Octokit } from "@octokit/rest";
 
 const octokit = new Octokit();
 
