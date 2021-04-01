@@ -1,27 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
+
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
+import Checkbox from '@material-ui/core/Checkbox';
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Cancel';
+
+
 import styles from './Item.module.css';
 
-const Item = ({ value, isDone, onClickDone, id }) => (<span className={
-  classnames({
-    [styles.item]: true,
-    [styles.done]: isDone
-  })
-}>
-{value}
-</span>);
-
-Item.defaultProps = {
-  isDone: false
-};
-
-Item.propTypes = {
-	value: PropTypes.string.isRequired,
-	isDone: PropTypes.bool.isRequired,
-	onClickDone: PropTypes.func,
-  id: PropTypes.number.isRequired,
-	onClickDelete: PropTypes.func
-};
+class Item extends React.Component {
+  render() {
+    const { value, isDone, onClickDone, id, onClickDelete } = this.props;
+    return (
+      <ListItem className={styles.itemList}>
+        <Checkbox
+          checked={isDone}
+          tabIndex={-1}
+          onClick={() => onClickDone(id)}
+        />
+        <ListItemText primary={value} classes={{
+          root: isDone && styles.done
+        }} />
+        <ListItemSecondaryAction>
+          <IconButton aria-label="delete">
+            <DeleteIcon onClick={() => onClickDelete(id)}/>
+          </IconButton>
+        </ListItemSecondaryAction>
+      </ListItem>
+    );
+  }
+}
 
 export default Item;

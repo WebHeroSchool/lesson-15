@@ -1,7 +1,15 @@
-.item {
-  color: #333;
+.done {
+  display: block;
+  text-decoration: line-through;
 }
 
-.done {
-  color: #dcdbda;
+.itemList {
+  margin-bottom: 20px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 41px;
 }

@@ -1,4 +1,42 @@
-.flex {
+.form {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.form div {
+  flex-grow: 1;
+  margin-right: 0.5em;
+}
+
+.form div div {
+  background: #fff;
+  border-color: #ccc;
+  box-sizing: border-box;
+  border-radius: 29px;
+}
+
+.form label {
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #ccc;
+}
+
+.form input {
+  width: 100%;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  color: #cccccc;
+}
+
+.fabBtn {
+  background-color: #356EFF;
+  color: #ffffff;
 }
