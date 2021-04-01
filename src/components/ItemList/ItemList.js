@@ -1,60 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Item from '../Item/Item';
-import styles from './ItemList.module.css';
-import Checkbox from '@material-ui/core/Checkbox';
-import IconButton from '@material-ui/core/IconButton';
-import DeleteIcon from '@material-ui/icons/Delete';
+import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
 
-class ItemList extends React.Component {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    backgroundColor: theme.palette.background.paper,
+    color: theme.palette.text.primary,
+  },
+}));
 
-  render() {
-    const { items, onClickDone, onClickDelete } = this.props;
-
-    return (<ul className={styles.itemList}>
-      {items.map(item =>
-        <li key={item.id} className={styles.item}>
-        <Checkbox
-          checked={item.isDone}
-          color="primary"
-          value="checkedG"
-          inputProps={{
-          'aria-label': 'secondary checkbox',
-        }}
-        onClick={() => onClickDone(item.id)}
-        />
-        <div className={styles.itemText} onClick={() => onClickDone(item.id)}>
+export default function ItemList ({ items, id, onClickDone, onClickDelete }) {
+  const classes = useStyles();
+  return (
+    <List className={classes.root}>
+      {items.map((item) => {
+        return (
           <Item
+            key={item.id}
             value={item.value}
             isDone={item.isDone}
-            id={items.id}
+            id={item.id}
             onClickDone={onClickDone}
+            onClickDelete={onClickDelete}
           />
-        </div>
-        <div>
-          <IconButton
-            aria-label='delete'
-            onClick={() => onClickDelete(item.id)}
-          >
-          <DeleteIcon fontSize='small' />
-          </IconButton>
-        </div>
-      </li>)}
-    </ul>
+        );
+      })}
+    </List>
   );
+}
 
-  ItemList.defaultProps = {
-    items: [{
-      value: "Не существующая задача",
-      isDone: false,
-    }]
-  };
-
-  ItemList.propTypes = {
-  	items: PropTypes.array.isRequired,
-  	onClickDone: PropTypes.func,
-  	onClickDelete: PropTypes.func};
-  }
+ItemList.propTypes = {
+  onClickDone: PropTypes.func.isRequired,
+  onClickDelete: PropTypes.func.isRequired
 };
-
-export default ItemList;
